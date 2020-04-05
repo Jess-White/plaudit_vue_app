@@ -1,5 +1,3 @@
-export default router
-
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
@@ -12,6 +10,9 @@ import LettersIndex from '../views/LettersIndex.vue';
 import LettersEdit from '../views/LettersEdit.vue';
 import LettersNew from '../views/LettersNew.vue';
 import LettersShow from '../views/LettersShow.vue';
+
+import LettersFinalizeShow from '../views/LettersFinalizeShow.vue';
+import LettersPrintableShow from '../views/LettersPrintableShow.vue';
 
 import RecipientsIndex from '../views/RecipientsIndex.vue';
 import RecipientsEdit from '../views/RecipientsEdit.vue';
@@ -28,7 +29,7 @@ Vue.use(VueRouter)
   const routes = [
 
   {path: '/', name: 'Home', component: Home},
-  {path: '/about', name: 'About', component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')}
+  {path: '/about', name: 'About', component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')},
 
   {path: '/users/new', name: 'users-new', component: UsersNew},
 
@@ -42,8 +43,8 @@ Vue.use(VueRouter)
   {path: '/letters/:id', name: 'letters-show', component: LettersShow},
   {path: '/letters/:id/edit', name: 'letters-edit', component: LettersEdit},
 
-  {path: '/grants/:id/finalize', name: 'grants-finalize-show', component: LettersFinalizeShow},
-  {path: '/grants/:id/printable', name: 'grants-printable-show', component: LettersPrintableShow},
+  {path: '/letters/:id/finalize', name: 'letters-finalize-show', component: LettersFinalizeShow},
+  {path: '/letters/:id/printable', name: 'letters-printable-show', component: LettersPrintableShow},
 
   {path: '/recipients', name: 'recipients-index', component: RecipientsIndex},
   {path: '/recipients/new', name: 'recipients-new', component: RecipientsNew},
