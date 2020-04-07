@@ -80,12 +80,9 @@
         first_name: "",
         last_name: "",
         title: "",
-        company: "",
-        address: "",
-        city: "",
-        state: "",
-        zip: "",
-        referee_id: "",
+        start_date: "",
+        end_date: "",
+        notes: "",
         email: "",
         errors: []
       };
@@ -97,19 +94,17 @@
         first_name: this.firstName,
         last_name: this.lastName,
         title: this.title,
-        company: this.company,
-        address: this.address,
-        city: this.city,
-        state: this.state,
-        zip: this.zip,
-        referee_id: this.refereeId,
-        email: this.email
+        start_date: this.start_date,
+        end_date: this.end_date,
+        notes: this.notes,
+        email: this.email,
+        zip: this.zip
       };
 
       axios
-        .post("/api/recipients/", clientParams)
+        .post("/api/referees/", clientParams)
         .then(response => {
-          this.$router.push("/recipients");
+          this.$router.push("/referees");
         }).catch(error => {
           this.errors = error.response.data.
             errors;
