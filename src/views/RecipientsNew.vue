@@ -31,28 +31,33 @@
         </div>
 
         <div class="form-group">
-          <label>Date: </label>
-          <input class="form-control" type="datetime" v-model="date">
-        </div>
-
-         <div class="form-group">
-          <label>Background: </label>
-          <input class="form-control" type="text" v-model="bio">
+          <label>Address: </label>
+          <input class="form-control" type="string" v-model="address">
         </div>
 
         <div class="form-group">
-          <label>Relationship: </label>
-          <input class="form-control" type="text" v-model="bio">
+          <label>City: </label>
+          <input class="form-control" type="string" v-model="city">
         </div>
 
         <div class="form-group">
-          <label>Strengths: </label>
-          <input class="form-control" type="text" v-model="bio">
+          <label>State: </label>
+          <input class="form-control" type="string" v-model="state">
         </div>
 
         <div class="form-group">
-          <label>Closer: </label>
-          <input class="form-control" type="text" v-model="bio">
+          <label>ZIP: </label>
+          <input class="form-control" type="string" v-model="zip">
+        </div>
+
+        <div class="form-group">
+          <label>Referee ID: </label>
+          <input class="form-control" type="integer" v-model="referee_id">
+        </div>
+
+        <div class="form-group">
+          <label>Email: </label>
+          <input class="form-control" type="string" v-model="email">
         </div>
         
         <input class="btn btn-info" type="submit" value="Add New Letter">
