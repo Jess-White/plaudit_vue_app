@@ -93,20 +93,24 @@ export default {
       });
   },
   methods: {
-    updateBio: function() {
+    updateRecipient: function() {
       var clientParams = {
-        first_name: this.bio.first_name,
-        last_name: this.bio.last_name,
-        title: this.bio.title,
-        bio: this.bio.bio,
-        organization_id: this.organization_id
-        
+        first_name: this.recipient.first_name,
+        last_name: this.recipient.last_name,
+        title: this.recipient.title,
+        company: this.recipient.company,
+        address: this.recipient.address,
+        city: this.recipient.city,
+        state: this.recipient.state,
+        zip: this.recipient.zip,
+        email: this.recipient.email,
+        errors: []
       };
 
     axios
-    .patch("/api/bios/" + this.$route.params.id, clientParams)
+    .patch("/api/recipients/" + this.$route.params.id, clientParams)
     .then(response => {
-      this.$router.push("/bios/" + this.$route.params.id);
+      this.$router.push("/recipients/" + this.$route.params.id);
     }).catch(error => {
       this.errors = error.response.data.errors;
     });
