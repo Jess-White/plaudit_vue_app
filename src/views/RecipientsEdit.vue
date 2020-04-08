@@ -1,5 +1,5 @@
 <template>
-  <div class="bios-edit">
+  <div class="recipients-edit">
 
     <div class="row">
       <form class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1" v-on:submit.prevent="updateRecipient()">

@@ -38,9 +38,9 @@ var axios = require('axios');
           start_date: "",
           end_date: "",
           notes: "",
-          email: "",
-          errors: []
+          email: ""
         }
+        errors: []
       };
     },
     created: function() {

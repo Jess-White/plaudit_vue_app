@@ -1,57 +1,51 @@
 <template>
-  <div class="bios-edit">
-
-    <div class="pt100 pb50 bg-dark">
-        <div class="container">
-            <div class="row align-items-center">
-            <div class="col-lg-8 mr-auto pb50 ml-auto">
-                <h2 class="h1 font300 text-white">
-                    Use This Page to Edit Saved <span class="text-primary">Staff Bios</span> for Your Organization.
-                </h2>
-                <p class="lead text-white-gray">
-                    Edit and update saved staff bios. 
-                </p>
-                <div class="experience-card clearfix">
-                    <div class="experience-inner">
-                        <h3 class="experience-text">05b</h3>
-                    </div> 
-                    <h4>Edit Staff Bios</h4>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
+  <div class="referees-edit">
 
     <div class="row">
-      <form class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1" v-on:submit.prevent="updateBio()">
-        <h1 class="text-center mb-5">Edit Bio</h1>
+      <form class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-10 offset-sm-1" v-on:submit.prevent="updateRecipient()">
+        <h1 class="text-center mb-5">Edit Referee</h1>
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
 
         <div class="form-group">
           <label>First Name: </label>
-          <input class="form-control" type="text" v-model="bio.first_name">
+          <input class="form-control" type="text" v-model="referee.first_name">
         </div>
 
         <div class="form-group">
           <label>Last Name: </label>
-          <input class="form-control" type="text" v-model="bio.last_name">
+          <input class="form-control" type="text" v-model="referee.last_name">
         </div>
 
         <div class="form-group">
           <label>Title: </label>
-          <input class="form-control" type="text" v-model="bio.title">
+          <input class="form-control" type="text" v-model="referee.title">
         </div>
 
         <div class="form-group">
-          <label>Bio Text: </label>
-          <input class="form-control" type="text" v-model="bio.bio">
+          <label>Start Date: </label>
+          <input class="form-control" type="text" v-model="referee.start_date">
+        </div>
+
+        <div class="form-group">
+          <label>End Date: </label>
+          <input class="form-control" type="text" v-model="referee.end_date">
+        </div>
+
+        <div class="form-group">
+          <label>Notes: </label>
+          <input class="form-control" type="text" v-model="referee.notes">
+        </div>
+
+        <div class="form-group">
+          <label>Email: </label>
+          <input class="form-control" type="text" v-model="referee.email">
         </div>
 
       </form>
 
-      <button v-on:click="updateBio()">Edit Bio</button>
+      <button v-on:click="updateReferee()">Edit Referee</button>
     </div>
   </div>
 </template>
@@ -65,39 +59,42 @@
 export default {
   data: function() {
     return {
-      bio: {
+      referee: {
         id: "",
         first_name: "",
         last_name: "",
         title: "",
-        bio: "",
-        organization_id: ""
+        start_date: "",
+        end_date: "",
+        notes: "",
+        email: ""
       },
       errors: []
     };
   },
   created: function() {
     axios
-      .get("/api/bios/" + this.$route.params.id)
+      .get("/api/referees/" + this.$route.params.id)
       .then(response => {
-        this.bio = response.data;
+        this.referee = response.data;
       });
   },
   methods: {
-    updateBio: function() {
+    updateReferee: function() {
       var clientParams = {
-        first_name: this.bio.first_name,
-        last_name: this.bio.last_name,
-        title: this.bio.title,
-        bio: this.bio.bio,
-        organization_id: this.organization_id
-        
+        first_name: this.referee.first_name,
+        last_name: this.referee.last_name,
+        title: this.referee.title,
+        start_date: this.referee.start_date,
+        end_date: this.referee.end_date,
+        notes: this.referee.notes,
+        email: this.referee.email
       };
 
     axios
-    .patch("/api/bios/" + this.$route.params.id, clientParams)
+    .patch("/api/referees/" + this.$route.params.id, clientParams)
     .then(response => {
-      this.$router.push("/bios/" + this.$route.params.id);
+      this.$router.push("/referees/" + this.$route.params.id);
     }).catch(error => {
       this.errors = error.response.data.errors;
     });
