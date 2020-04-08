@@ -43,8 +43,8 @@ var axios = require('axios');
           zip: "",
           referee_id: "",
           email: ""
-          errors: []
-        }
+        },
+        errors: []
       };
     },
     created: function() {
