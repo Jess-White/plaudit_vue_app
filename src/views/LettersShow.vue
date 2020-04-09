@@ -7,50 +7,54 @@
         <h4 class="text-center">Title: {{letter.title}}</h4>
        </div>
 
+      <!-- letter header - sender address -->
        <div class="col-md-6">
-        <h4 class="text-center">User Name: {{user.name}}</h4>
-        <h4 class="text-center">User Name: {{user.name}}</h4>
-        <h4 class="text-center">User Name: {{user.name}}</h4>
-        <h4 class="text-center">User Name: {{user.name}}</h4>
+        <h4 class="text-center">User Name: {{user.first_name}} {{user.last_name}}</h4>
+        <h4 class="text-center">User Title: {{user.title}}</h4>
+        <h4 class="text-center">User Company: {{user.company_name}}</h4>
+        <h4 class="text-center">User Address: {{user.company_address}}</h4>
+        <h4 class="text-center">User Address Part Two: {{user.company_city}}
+        {{user.company_state}}
+        {{user.company_zip}}
+        </h4>
        </div>
 
+       <!-- #today's date -->
+
+       <!-- recipient address -->
        <div class="col-md-6">
-        <h4 class="text-center">Name: {{recipient.first_name}} {{recipient.last_name}}</h4>
-        <h4 class="text-center">Title: {{recipient.title}}</h4>
-        <h4 class="text-center">Email: {{recipient.email}}</h4>
-        <h4 class="text-center">Address: {{recipient.address}}</h4>
-        <h4 class="text-center">City: {{recipient.city}}</h4>
-        <h4 class="text-center">State: {{recipient.state}}</h4>
-        <h4 class="text-center">Zip: {{recipient.zip}}</h4>
-      </h4>
+        <h4 class="text-center">Recipient Name: {{recipient.name}}</h4>
+        <h4 class="text-center">Recipient Title: {{recipient.title}}</h4>
+        <h4 class="text-center">Recipient Company: {{recipient.company}}</h4>
+        <h4 class="text-center">Recipient Address: {{recipient.address}}</h4>
+        <h4 class="text-center">Recipient Address Part Two: {{recipient.city}}
+        {{recipient.state}}
+        {{recipient.zip}}
+        </h4>
        </div>
 
+<!-- letter body  -->
+
        <div class="col-md-6">
-        <h4 class="text-center">Letter Title: {{letter.title}}</h4>
-        <h4 class="text-center">Title: {{recipient.title}}</h4>
-        <h4 class="text-center">Email: {{recipient.email}}</h4>
-        <h4 class="text-center">Address: {{recipient.address}}</h4>
-        <h4 class="text-center">City: {{recipient.city}}</h4>
-        <h4 class="text-center">State: {{recipient.state}}</h4>
-        <h4 class="text-center">Zip: {{recipient.zip}}</h4>
-      </h4>
+        <h4 class="text-center">Dear Recipient Name: {{recipient.first_name}} {{recipient.last_name}}</h4>
+        
+        <h4 class="text-center">Background: {{letter.section_background}}</h4>
+        <h4 class="text-center">Relationship: {{letter.section_relationship}}</h4>
+        <h4 class="text-center">Strengths: {{letter.section_strengths}}</h4>
+        <h4 class="text-center">Closer: {{letter.section_closer}}</h4>
        </div>
 
-        <div class="col-md-6">
-         <h4 class="text-center">Name: {{recipient.first_name}} {{recipient.last_name}}</h4>
-         <h4 class="text-center">Title: {{recipient.title}}</h4>
-         <h4 class="text-center">Email: {{recipient.email}}</h4>
-         <h4 class="text-center">Address: {{recipient.address}}</h4>
-         <h4 class="text-center">City: {{recipient.city}}</h4>
-         <h4 class="text-center">State: {{recipient.state}}</h4>
-         <h4 class="text-center">Zip: {{recipient.zip}}</h4>
-       </h4>
-        </div>
+    <!--    letter signature -->
 
+       <div class="col-md-6">
+        <h4 class="text-center">User Name: {{user.first_name}}{{user.last_name}}</h4>
+        <h4 class="text-center">User Title: {{user.title}}</h4>
+        <h4 class="text-center">User Company: {{user.company_name}}</h4>
+       </div>
 
        <div>
-          <router-link class="btn btn-info m-2" v-bind:to="'/recipients/' + recipient.id + '/edit'">Edit</router-link>
-          <button class="btn btn-info m-2" v-on:click="destroyRecipient()">Delete</button>
+          <router-link class="btn btn-info m-2" v-bind:to="'/letters/' + letter.id + '/edit'">Edit</router-link>
+          <button class="btn btn-info m-2" v-on:click="destroyLetter()">Delete</button>
         </div>
      </div> 
 
@@ -158,30 +162,4 @@ axios.all([getUserData(), getRecipientData(), getRefereeData()])
   this.referees = response.data;
 }))
 
-methods: {
-  destroyLetter: function() {
-    axios.
-      .delete("/api/letters" this.$route.params.id)
-      .then(response => {
-        this.$router.push("/");
-    });
-},
-  printableLetter: function() {
-    axios.
-      .get("/api/letters/" + this.$route.params.id)
-      .then(response => {
-        this.$router.push("/letters/" + this$route.params.id + "/printable");
-    });
-}
-},
-watch: {
-  $route: function() {
-    axios
-    .get("/api/letters/" + this.$route.params.id)
-    .then(response => {
-      this.letter = response.data;
-    });
-  }
-}
-};
 
