@@ -21,7 +21,7 @@
 
        <!-- #today's date -->
 
-       <!-- recipient address -->
+       <!-- Letter header - recipient address -->
        <div class="col-md-6">
         <h4 class="text-center">Recipient Name: {{recipient.name}}</h4>
         <h4 class="text-center">Recipient Title: {{recipient.title}}</h4>
