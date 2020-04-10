@@ -21,41 +21,41 @@
 
         <div class="form-group">
           <label>Email:</label>
-          <input type="email" class="form-control" v-model="email">
+          <input type="text" class="form-control" v-model="email">
         </div>
 
         <div class="form-group">
           <label>Company Name:</label>
-          <input type="companyName" class="form-control" v-model="companyName">
+          <input type="text" class="form-control" v-model="companyName">
         </div>
 
         <div class="form-group">
           <label>Company Address:</label>
-          <input type="companyAdddress" class="form-control" v-model="companyAdddress">
+          <input type="text" class="form-control" v-model="companyAdddress">
         </div>
 
         <div class="form-group">
           <label>Company City:</label>
-          <input type="companyCity" class="form-control" v-model="companyCity">
+          <input type="text" class="form-control" v-model="companyCity">
         </div>
 
         <div class="form-group">
           <label>Company Zip:</label>
-          <input type="companyZip" class="form-control" v-model="companyZip">
+          <input type="text" class="form-control" v-model="companyZip">
         </div>
 
         <div class="form-group">
           <label>Background:</label>
-          <input type="background" class="form-control" v-model="background">
+          <input type="text" class="form-control" v-model="background">
         </div>
 
         <div class="form-group">
           <label>Password:</label>
-          <input type="password" class="form-control" v-model="password">
+          <input type="text" class="form-control" v-model="password">
         </div>
         <div class="form-group">
           <label>Password Confirmation:</label>
-          <input type="password" class="form-control" v-model="passwordConfirmation">
+          <input type="text" class="form-control" v-model="passwordConfirmation">
         </div>
         <input type="submit" class="btn btn-primary" value="Submit">
       </form>
