@@ -16,7 +16,7 @@
         </div>
 
         <div class="form-group">
-          <label>Refere ID: </label>
+          <label>Referee ID: </label>
           <input class="form-control" type="text" v-model="refereeId">
         </div>
 
@@ -56,6 +56,20 @@
         </div>
         
         <input class="btn btn-info" type="submit" value="Add New Letter">
+
+        <div class="form-group">
+          <label>Recipient: </label>
+          <select class="form-control" v-model="recipientId">
+            <option v-for="recipient in recipients" :value="recipient.id">{{ recipient.first_name }} {{ recipient.last_name }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Referee: </label>
+          <select class="form-control" v-model="refereeId">
+            <option v-for="referee in referees" :value="referee.id">{{ referee.first_name }} {{ referee.last_name }}</option>
+          </select>
+        </div>
       </form>
     </div>
 
@@ -102,7 +116,7 @@
       axios
         .post("/api/letters/", clientParams)
         .then(response => {
-          this.$router.push("/letters");
+          this.$router.push("/letters/:id/printable");
         }).catch(error => {
           this.errors = error.response.data.
             errors;

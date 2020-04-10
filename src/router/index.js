@@ -31,7 +31,7 @@ Vue.use(VueRouter)
 
   {path: '/', name: 'root', component: Login},
 
-  {path: '/', name: 'Home', component: Home},
+  // {path: '/', name: 'Home', component: Home},
   {path: '/about', name: 'About', component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')},
   {path: '/dashboard', name: 'dashboard', component: Dashboard},
 

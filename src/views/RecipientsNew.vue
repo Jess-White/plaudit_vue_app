@@ -109,7 +109,7 @@
       axios
         .post("/api/recipients/", clientParams)
         .then(response => {
-          this.$router.push("/recipients");
+          this.$router.push("/letters/new");
         }).catch(error => {
           this.errors = error.response.data.
             errors;
