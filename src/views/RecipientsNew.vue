@@ -60,7 +60,7 @@
           <input class="form-control" type="text" v-model="email">
         </div>
         
-        <input class="btn btn-info" type="submit" value="Add New Letter">
+        <input class="btn btn-info" type="submit" value="Start Letter Draft">
       </form>
     </div>
 
