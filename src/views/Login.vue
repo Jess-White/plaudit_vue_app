@@ -49,7 +49,7 @@ export default {
           localStorage.setItem("userEmail", response.data.email);
 
 
-          this.$router.push("/");
+          this.$router.push("/dashboard");
         })
         .catch(error => {
           this.errors = ["Invalid email or password."];

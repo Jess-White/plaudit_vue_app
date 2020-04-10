@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Dashboard from '../views/Dashboard.vue'
 
 import Login from '../views/Login.vue';
 import Logout from '../views/Logout.vue';
@@ -28,15 +29,16 @@ Vue.use(VueRouter)
 
   const routes = [
 
+  {path: '/', name: 'root', component: Login},
+
   {path: '/', name: 'Home', component: Home},
   {path: '/about', name: 'About', component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')},
+  {path: '/dashboard', name: 'dashboard', component: Dashboard},
 
   {path: '/users/new', name: 'users-new', component: UsersNew},
 
   {path: '/login', name: 'login', component: Login},
   {path: '/logout', name: 'logout', component: Logout},
-
-  {path: '/', name: 'root', component: LettersIndex},
 
   {path: '/letters', name: 'letters-index', component: LettersIndex},
   {path: '/letters/new', name: 'letters-new', component: LettersNew},
