@@ -17,12 +17,22 @@
         <div class="card">
 
           <div class="card-body text-info">
-            <h5 class="card-name">{{bio.first_name}} {{bio.last_name}}</h5>
-          
-                        <!-- need to add organization -->
-            <p class="card-text">{{bio.title}}</p>
-            <p class="card-text">{{bio.bio}}</p>
-            <p class="card-text">{{bio.organization_id}}</p>
+            <h5 class="card-name">{{letter.title}}</h5>
+
+            <h5 class="card-text">{{letter.user_id}}</h5>
+            <h5 class="card-text">{{letter.referee_id}}</h5>
+
+            <p class="card-text">{{letter.recipient_info}}</p>
+            <p class="card-text">{{letter.date}}</p>
+            <p class="card-text">{{letter.section_background}}
+            </p>
+            <p class="card-text">{{letter.section_relationship}}
+            </p>
+            <p class="card-text">{{letter.section_strengths}}
+            </p>
+            <p class="card-text">{{letter.section_closer}}
+            </p>
+
           </div>
         </div>
 
@@ -49,14 +59,14 @@
   export default {
     data: function() {
       return {
-        bios: []
+        letters: []
       };
     },
   created: function() {
     axios
-    .get("/api/bios")
+    .get("/api/letters")
     .then(response => {
-      this.bios = response.data;
+      this.letters = response.data;
     });
   },
   methods: {}
