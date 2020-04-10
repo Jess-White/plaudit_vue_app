@@ -17,7 +17,7 @@
         <div class="card">
 
           <div class="card-body text-info">
-            <h4 class="card-name">{{recipient.first_name}} {{recipient.last_name}}</h5>
+            <h5 class="card-name">{{recipient.first_name}} {{recipient.last_name}}</h5>
             <h5 class="card-text">{{recipient.title}}</h5>
             <h5 class="card-text">{{recipient.company}}</h5>
             <h5 class="card-text">{{recipient.email}}</h5>

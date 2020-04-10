@@ -65,7 +65,7 @@
 
 <style></style>
 
-<script>
+<!-- <script>
 var axios = require('axios');
 
   export default {
@@ -104,7 +104,7 @@ var axios = require('axios');
           background: "",
           first_name: "",
           last_name: ""
-        }
+        },
         errors: []
       };
     },
@@ -143,9 +143,9 @@ watch: {
   }
 }
 };
-</script>
+</script> -->
 
-function getUserData() {
+<!-- function getUserData() {
   return axios.get("/api/users/" + this.$route.params.id);
 }
 function getRecipientData() {
@@ -161,5 +161,5 @@ axios.all([getUserData(), getRecipientData(), getRefereeData()])
   this.recipients = response.data;
   this.referees = response.data;
 }))
-
+ -->
 

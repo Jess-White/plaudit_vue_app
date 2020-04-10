@@ -39,7 +39,7 @@ var axios = require('axios');
           end_date: "",
           notes: "",
           email: ""
-        }
+        },
         errors: []
       };
     },
