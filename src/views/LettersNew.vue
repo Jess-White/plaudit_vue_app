@@ -5,20 +5,11 @@
       <form class="col-6 offset-3"
         v-on:submit.prevent="createLetter()">
         <h1 class="text-center mb-5">New Letter</h1>
+        <h3 class="text-center mb-5">Use this template to build the body of your letter.</h3>
 
         <ul>
           <li class="text-danger" v-for="error in errors">{{ error }}</li>
         </ul>
-
-        <div class="form-group">
-          <label>User ID: </label>
-          <input class="form-control" type="text" v-model="userId">
-        </div>
-
-        <div class="form-group">
-          <label>Referee ID: </label>
-          <input class="form-control" type="text" v-model="refereeId">
-        </div>
 
         <div class="form-group">
           <label>Title: </label>
@@ -98,7 +89,19 @@
         errors: []
       };
     },
-    created: function() {},
+    created: function() {
+      axios
+        .get("/api/recipients")
+        .then(response => {
+          this.recipients = response.data;
+        });
+
+      axios
+        .get("/api/referees")
+        .then(response => {
+          this.referees = response.data;
+        });
+    },
     methods: {
       createLetter: function() {
         var clientParams = {
@@ -116,10 +119,11 @@
       axios
         .post("/api/letters/", clientParams)
         .then(response => {
-          this.$router.push("/letters/:id/printable");
+          this.$router.push("/letters/" + response.data.id);
         }).catch(error => {
           this.errors = error.response.data.
             errors;
+          this.status = error.response.status;
         });
     }
   }

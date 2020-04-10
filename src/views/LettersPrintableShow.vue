@@ -1,7 +1,7 @@
-<template>
-  <div class="letters-show">
+<templa<template>
+  <div class="letters-printable-show">
 
-     <div class="row">
+     <div class="row" v:if="letter">
 
        <div class="col-md-6">
         <h4 class="text-center">Title: {{letter.title}}</h4>
@@ -65,12 +65,13 @@
 
 <style></style>
 
-<!-- <script>
+<script>
 var axios = require('axios');
 
   export default {
     data: function() {
       return {
+        letter: null,
         recipient: {
           id: "",
           first_name: "",
@@ -109,24 +110,32 @@ var axios = require('axios');
       };
     },
   created: function() {
-    axios 
-      .get("/api/recipients/" + this.$route.params.id)
-      .get("/api/referees/" + this.$route.params.id)
-      .get("/api/users/" + this.$route.params.id)
+    axios
+      .get("/api/letters/" + this.$route.params.id)
       .then(response => {
-        this.recipient = response.data
-      });
+        this.letter = response.data
+        axios 
+          .get("/api/recipients" + this.letter.recipient_id)
+      })
+
+
+      // .get("/api/recipients/" + this.$route.params.id)
+      // .get("/api/referees/" + this.$route.params.id)
+      // .get("/api/users/" + this.$route.params.id)
+      // .then(response => {
+      //   this.recipient = response.data
+      // });
     },
 methods: {
   destroyLetter: function() {
-    axios.
-      .delete("/api/letters" this.$route.params.id)
+    axios
+      .delete("/api/letters" + this.$route.params.id)
       .then(response => {
         this.$router.push("/");
       });
     },
   printableLetter: function() {
-    axios.
+    axios
       .get("/api/letters/" + this.$route.params.id)
       .then(response => {
         this.$router.push("/letters/" + this$route.params.id + "/printable");
@@ -143,7 +152,7 @@ watch: {
   }
 }
 };
-</script> -->
+</script>
 
 <!-- function getUserData() {
   return axios.get("/api/users/" + this.$route.params.id);
@@ -160,6 +169,8 @@ axios.all([getUserData(), getRecipientData(), getRefereeData()])
   this.users = response.data;
   this.recipients = response.data;
   this.referees = response.data;
-}))
- -->
+})) -->
+
+
+
 
