@@ -22,7 +22,7 @@
 
         <div class="form-group">
           <label>Title: </label>
-          <input class="form-control" type="string" v-model="title">
+          <input class="form-control" type="text" v-model="title">
         </div>
 
         <div class="form-group">
@@ -32,7 +32,7 @@
 
         <div class="form-group">
           <label>Date: </label>
-          <input class="form-control" type="datetime" v-model="date">
+          <input class="form-control" type="text" v-model="date">
         </div>
 
          <div class="form-group">
